@@ -1,0 +1,23 @@
+.btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9px;
+    box-shadow: var(--box-shadow);
+    width: 42px;
+    height: 42px;
+    transition: all .22s;
+}
+.btn__round {
+    border-radius: 100px;
+}
+.btn__blue {
+    background: var(--blue-light-gradient);
+}
+.btn__blue:hover {
+    background: var(--blue-dark-gradient);
+}
+.btn__blue svg {
+    fill: var(--white);
+}

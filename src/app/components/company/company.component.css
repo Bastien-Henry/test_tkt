@@ -1,0 +1,13 @@
+.company-header {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+.company-infos {
+    margin-left: 20px;
+}
+.company-siren {
+    margin-top: 20px;
+    color: var(--grey);
+    display: block;
+}

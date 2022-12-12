@@ -1,0 +1,25 @@
+<div class="app-container">
+    <sidebar
+    [namePage]="'dashboard'">
+    </sidebar>
+    <div class="app-content app-content__start flex flex__column">
+      <div class="dashboard-header">
+        <h1 class="font-title-h1">Welcome on TKT dashboard</h1>
+      </div>
+      <div class="header-list">
+        <div class="company-name font-subtext">Company</div>
+        <div class="company-siren font-subtext">N° siren</div>
+        <div class="company-sector font-subtext">Category</div>
+      </div>
+      <div *ngIf="!companies" class="loader-container"><span class="loader"></span></div>
+      <div *ngIf="companies" class="list-company">
+        <ng-container *ngFor="let company of companies">
+            <a routerLink="/company/{{company.id}}" class="item-company">
+                <td><div class="company-name font-nav-medium">{{company.name}}</div></td>
+                <td><div class="company-siren font-nav-medium">{{company.siren}}</div></td>
+                <td><div class="company-sector"><span class="tag tag__blue">{{company.sector}}</span></div></td>
+            </a>
+        </ng-container>
+      </div>
+    </div> 
+  </div>

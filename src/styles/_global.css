@@ -1,0 +1,132 @@
+* {
+    font-family: 'Manrope', sans-serif;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+h1, h2, h3 {
+    margin: 0px;
+}
+button {
+    border: none;
+    cursor: pointer;
+}
+textarea {
+    resize: none;
+}
+button:focus,
+button:active {
+    outline: none;
+}
+a {
+    text-decoration: none;
+}
+
+.app-container {
+    height: 100%;
+    width: 100%;
+    background-color: var(--white);
+    display: flex;
+    flex-flow: row;
+    overflow: auto;
+}
+.app-container .app-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    background-color: var(--white);
+    overflow: auto;
+}
+.app-container .app-content__center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app-container .app-content__start {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.app-container .app-content__column {
+    flex-flow: column;
+}
+.app-container .app-content__no-padding {
+    padding: 0px;
+}
+.font-title-h1 {
+    font-weight: 500;
+    font-size: 26px;
+}
+.font-title-h2 {
+    font-weight: 500;
+    font-size: 20px;
+}
+.font-text-roman {
+    font-weight: 400;
+    font-size: 16px;
+}
+.font-text-medium {
+    font-weight: 500;
+    font-size: 16px;
+}
+.font-nav-medium {
+    font-weight: 500;
+    font-size: 14px;
+}
+.font-subtext {
+    font-weight: 500;
+    font-size: 12px;
+}
+.tag {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 6px 8px;
+    border-radius: 4px;
+}
+.tag__blue {
+    background-color: var(--blue);
+    color: var(--white);
+}
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex-grow: 1;
+    height: 100%;
+}
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 3px solid var(--blue);
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: loader 1s linear infinite;
+}
+.loader::after {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-bottom-color: var(--blue);
+}
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
