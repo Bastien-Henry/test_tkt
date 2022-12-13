@@ -1,25 +1,68 @@
 <div class="app-container">
     <sidebar
-    [namePage]="'dashboard'">
+    [namePage]="'dashboard'"
+    [display]="displaySidebar"
+    (closeEvent)="displaySidebar = false;">
     </sidebar>
     <div class="app-content app-content__start flex flex__column">
+        <div class="display__mobile responsive-header">
+            <a routerLink="/dashboard">
+                <img src="/assets/svg/tkt_logo.svg" alt="Logo tkt">
+            </a>
+            <div class="display__mobile">
+                <button (click)="displaySidebar = true;" class="btn btn__round btn__blue" type="button">
+                    <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.25 15C0.25 15.4142 0.585786 15.75 1 15.75H9C9.41421 15.75 9.75 15.4142 9.75 15C9.75 14.5858 9.41421 14.25 9 14.25H1C0.585786 14.25 0.25 14.5858 0.25 15ZM0.25 8C0.25 8.41421 0.585786 8.75 1 8.75H14C14.4142 8.75 14.75 8.41421 14.75 8C14.75 7.58579 14.4142 7.25 14 7.25H1C0.585786 7.25 0.25 7.58579 0.25 8ZM1 1.75C0.585786 1.75 0.25 1.41421 0.25 1C0.25 0.585787 0.585786 0.25 1 0.25H19C19.4142 0.25 19.75 0.585787 19.75 1C19.75 1.41421 19.4142 1.75 19 1.75H1Z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
       <div class="dashboard-header">
         <h1 class="font-title-h1">Welcome on TKT dashboard</h1>
       </div>
-      <div class="header-list">
-        <div class="company-name font-subtext">Company</div>
-        <div class="company-siren font-subtext">N° siren</div>
-        <div class="company-sector font-subtext">Category</div>
-      </div>
-      <div *ngIf="!companies" class="loader-container"><span class="loader"></span></div>
-      <div *ngIf="companies" class="list-company">
-        <ng-container *ngFor="let company of companies">
-            <a routerLink="/company/{{company.id}}" class="item-company">
-                <td><div class="company-name font-nav-medium">{{company.name}}</div></td>
-                <td><div class="company-siren font-nav-medium">{{company.siren}}</div></td>
-                <td><div class="company-sector"><span class="tag tag__blue">{{company.sector}}</span></div></td>
-            </a>
-        </ng-container>
+      <div *ngIf="loading" class="loader-container"><span class="loader"></span></div>
+      <div *ngIf="!loading" class="dashboard-content">
+        <div class="dashboard-filters">
+            <mat-form-field>
+                <input type="text" placeholder="Sector" matInput [(ngModel)]="valueSector" [formControl]="inputSector"
+                        [matAutocomplete]="autocompleteSectors">
+                    <mat-autocomplete #autocompleteSectors="matAutocomplete" (optionSelected)="selectSector($event)">
+                        <mat-option *ngFor="let sector of filteredSectors | async" [value]="sector">
+                        {{sector}}
+                    </mat-option>
+                </mat-autocomplete>
+                <button type="button" mat-button *ngIf="sectorSelected" matSuffix mat-icon-button aria-label="Clear" (click)="sectorSelected = null; valueSector = null;">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+    
+            <mat-form-field>
+                <input type="text" placeholder="Company" matInput [(ngModel)]="valueCompanyName" [formControl]="inputCompany"
+                        [matAutocomplete]="autocompleteCompanies">
+                    <mat-autocomplete #autocompleteCompanies="matAutocomplete" (optionSelected)="selectCompany($event)">
+                        <mat-option *ngFor="let company of filteredCompanies | async" [value]="company">
+                        {{company}}
+                    </mat-option>
+                </mat-autocomplete>
+                <button type="button" mat-button *ngIf="companySelected" matSuffix mat-icon-button aria-label="Clear" (click)="companySelected = null; valueCompanyName = null;">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+          </div>
+          <div class="header-list">
+            <div class="company-name font-subtext">Company</div>
+            <div class="company-siren font-subtext">N° siren</div>
+            <div class="company-sector font-subtext">Category</div>
+          </div>
+          <div *ngIf="companies" class="list-company">
+            <ng-container *ngFor="let company of companies">
+                <a *ngIf="((sectorSelected && company.sector === sectorSelected) || !sectorSelected) && ((companySelected && company.name === companySelected) || !companySelected)" routerLink="/company/{{company.id}}" class="item-company">
+                    <div class="font-nav-medium">{{company.name}}</div>
+                    <div class="font-nav-medium">{{company.siren}}</div>
+                    <div class="flex"><span class="tag tag__blue">{{company.sector}}</span></div>
+                </a>
+            </ng-container>
+          </div>
       </div>
     </div> 
   </div>

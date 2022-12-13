@@ -15,5 +15,43 @@
                 <span class="font-subtext company-siren">N° SIREN {{company.siren}}</span>
             </div>
         </div>
+        <div *ngIf="!loading" class="company-data-container">
+            <div class="company-data">
+                <div class="font-title-h2 data-label">Chiffre d'affaire</div>
+                <div class="chart-container">
+                    <chart
+                    [labels]="data.ca.labels"
+                    [counts]="data.ca.count">
+                    </chart>
+                </div>
+            </div>
+            <div class="company-data">
+                <div class="font-title-h2 data-label">EBITDA</div>
+                <div class="chart-container">
+                    <chart
+                    [labels]="data.ebitda.labels"
+                    [counts]="data.ebitda.count">
+                    </chart>
+                </div>
+            </div>
+            <div class="company-data">
+                <div class="font-title-h2 data-label">Loss</div>
+                <div class="chart-container">
+                    <chart
+                    [labels]="data.loss.labels"
+                    [counts]="data.loss.count">
+                    </chart>
+                </div>
+            </div>
+            <div class="company-data">
+                <div class="font-title-h2 data-label">Margin</div>
+                <div class="chart-container">
+                    <chart
+                    [labels]="data.margin.labels"
+                    [counts]="data.margin.count">
+                    </chart>
+                </div>
+            </div>
+        </div>
     </div> 
   </div>

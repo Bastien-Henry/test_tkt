@@ -2,13 +2,28 @@
     display: flex;
     flex-flow: row;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     margin-bottom: 40px;
 }
+.dashboard-content {
+    width: 100%;
+}
+.dashboard-filters {
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 40px;
+    width: 100%;
+}
+.display__mobile {
+    display: none;
+}
 .header-list {
-    display: flex;
-    flex-flow: row;
-    align-items: center;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 20px;
     padding: 20px;
     text-transform: uppercase;
     color: var(--grey);
@@ -20,9 +35,10 @@
     text-transform: uppercase;
 }
 .item-company {
-    display: flex;
-    flex-flow: row;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
+    grid-column-gap: 20px;
     padding: 20px;
     border-radius: 10px;
     color: var(--black);
@@ -37,11 +53,4 @@
 }
 .item-company:last-child {
     margin-bottom: 0px;
-}
-.company-siren,
-.company-name {
-    width: 330px;
-}
-.company-sector {
-    flex-grow: 1;
 }

@@ -14,9 +14,6 @@ button {
     border: none;
     cursor: pointer;
 }
-textarea {
-    resize: none;
-}
 button:focus,
 button:active {
     outline: none;
@@ -24,7 +21,6 @@ button:active {
 a {
     text-decoration: none;
 }
-
 .app-container {
     height: 100%;
     width: 100%;
@@ -34,7 +30,7 @@ a {
     overflow: auto;
 }
 .app-container .app-content {
-    padding: 25px;
+    padding: 20px;
     flex-grow: 1;
     display: flex;
     background-color: var(--white);
@@ -52,8 +48,17 @@ a {
 .app-container .app-content__column {
     flex-flow: column;
 }
-.app-container .app-content__no-padding {
-    padding: 0px;
+.flex {
+    display: flex;
+}
+.flex__grow {
+    flex-grow: 1;
+}
+.flex__column {
+    flex-flow: column;
+}
+.flex__row {
+    flex-flow: row;
 }
 .font-title-h1 {
     font-weight: 500;
@@ -130,3 +135,30 @@ a {
         transform: rotate(360deg);
     }
 } 
+.display__mobile {
+    display: none;
+}
+@-webkit-keyframes fade-in-right {
+    0% {
+      -webkit-transform: translateX(50px);
+              transform: translateX(50px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in-right {
+    0% {
+      -webkit-transform: translateX(50px);
+              transform: translateX(50px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }

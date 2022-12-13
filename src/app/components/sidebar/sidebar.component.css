@@ -24,6 +24,8 @@
     display: flex;
     align-items: center;
     padding: 20px;
+    width: 100%;
+    justify-content: space-between;
 }
 .sidebar .logo-container a {
     display: flex;

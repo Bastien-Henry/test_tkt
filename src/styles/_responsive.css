@@ -1,0 +1,37 @@
+@media (max-width:768px) {
+    .app-container {
+        flex-flow: column;
+    }
+    .sidebar {
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute;
+        top: 0px;
+        animation: fade-in-right 0.33s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        z-index: 2;
+    }
+    .sidebar .logo-container a img {
+        height: 20px !important;
+     }
+    .display__mobile {
+        display: block !important;
+    }
+    .company-data-container {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: 1fr !important;
+    }
+    .responsive-header {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 40px;
+        padding: 20px;
+    }
+    .responsive-header img {
+        height: 20px;
+    }
+    .dashboard-filters {
+        grid-template-columns: 1fr !important;
+    }
+}

@@ -28,11 +28,14 @@
             ],
             "styles": [
               "src/styles/_global.css",
-              "src/styles/_flex.css",
               "src/styles/_buttons.css",
-              "src/styles/_variables.css"
+              "src/styles/_responsive.css",
+              "src/styles/_variables.css",
+              "src/styles/_material_ui_theme.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/chart.js/dist/chart.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -98,9 +101,10 @@
             ],
             "styles": [
               "src/styles/_global.css",
-              "src/styles/_flex.css",
               "src/styles/_buttons.css",
-              "src/styles/_variables.css"
+              "src/styles/_responsive.css",
+              "src/styles/_variables.css",
+              "src/styles/_material_ui_theme.scss"
             ],
             "scripts": []
           }

@@ -1,9 +1,16 @@
-<nav class="sidebar">
+<nav *ngIf="display" class="sidebar">
     <div class="sidebar-content">
         <div class="logo-container">
             <a routerLink="/dashboard">
               <img src="/assets/svg/tkt_logo.svg" alt="Logo tkt">
             </a>
+            <div class="display__mobile">
+              <button (click)="closeEvent.emit()" class="btn btn__round btn__blue" type="button">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0.227011 0.22703C0.519904 -0.0658633 0.994778 -0.0658636 1.28767 0.22703L5.99998 4.93934L10.7123 0.22703C11.0052 -0.0658633 11.4801 -0.0658637 11.773 0.22703C12.0658 0.519923 12.0658 0.994797 11.773 1.28769L7.06064 6L11.773 10.7123C12.0658 11.0052 12.0658 11.4801 11.773 11.773C11.4801 12.0659 11.0052 12.0659 10.7123 11.773L5.99998 7.06066L1.28767 11.773C0.994778 12.0659 0.519904 12.0659 0.227011 11.773C-0.0658823 11.4801 -0.0658823 11.0052 0.227011 10.7123L4.93932 6L0.227011 1.28769C-0.0658823 0.994797 -0.0658823 0.519923 0.227011 0.22703Z"/>
+                </svg>                             
+              </button>
+            </div>
         </div>
         <div class="menu-container">
             <ul>
